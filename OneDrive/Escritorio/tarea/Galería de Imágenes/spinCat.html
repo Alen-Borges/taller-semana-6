@@ -26,26 +26,32 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
-        function toggleImagen() {
-            const img = document.getElementById("imagen");
-            const audio = document.getElementById("sonido");
-            const isHidden = img.style.display === "none";
+       function toggleImagen() {
+  const img = document.getElementById("imagen");
+  const audio = document.getElementById("sonido");
+  const isHidden = img.style.display === "none";
 
-            img.style.display = isHidden ? "block" : "none";
+  img.style.display = isHidden ? "block" : "none";
 
-            if (isHidden) {
-                // 🎉 Confeti
-                confetti({
-                    particleCount: 150,
-                    spread: 100,
-                    origin: { y: 0.6 }
-                });
+  if (isHidden) {
+    // 🔊 Audio (cargamos antes por seguridad)
+    audio.load();
+    audio.currentTime = 0;
+    audio.play().catch((e) => {
+      console.warn("Audio bloqueado por el navegador:", e);
+    });
 
-                // 🔊 Reproducir audio
-                audio.currentTime = 0; // Reinicia el audio
-                audio.play();
-            }
-        }
+    // 🎉 Confetti con pequeña espera
+    setTimeout(() => {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }, 0);
+  }
+}
+
     </script>
 </body>
 
