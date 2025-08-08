@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="uiiai.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button class="btn" onclick="toggleImagen()">uiiai</button>
+    </div>
+
+    <div>
+        <img id="imagen" class="uiiai"
+            src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWJ5ZWcxYnJ6bmx2ZTF2enMwYjhwZjFzdmVnNHQ2emljeWthbXVucCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/ztisqLhP99tVSHG136/source.gif"
+            alt="uiiai" style="display: none;" />
+    </div>
+
+    <!-- Audio -->
+    <audio id="sonido" src="uiiai.mp3"></audio>
+
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        function toggleImagen() {
+            const img = document.getElementById("imagen");
+            const audio = document.getElementById("sonido");
+            const isHidden = img.style.display === "none";
+
+            img.style.display = isHidden ? "block" : "none";
+
+            if (isHidden) {
+                // 🎉 Confeti
+                confetti({
+                    particleCount: 150,
+                    spread: 100,
+                    origin: { y: 0.6 }
+                });
+
+                // 🔊 Reproducir audio
+                audio.currentTime = 0; // Reinicia el audio
+                audio.play();
+            }
+        }
+    </script>
+</body>
+
+</html>
