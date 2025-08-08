@@ -1,0 +1,1 @@
+alert("¡Bienvenido a la galeria de imagenes del grupo 1!");
