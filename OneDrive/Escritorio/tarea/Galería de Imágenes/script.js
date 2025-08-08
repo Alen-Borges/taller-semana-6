@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 alert("¡Bienvenido a la galeria de imagenes del grupo 1!");
-=======
 const botonTema = document.getElementById("tema");
 
 botonTema.addEventListener("click", () => {
@@ -12,4 +10,3 @@ botonTema.addEventListener("click", () => {
     botonTema.textContent = "Tema: Oscuro";
   }
 });
->>>>>>> anthony-tema
