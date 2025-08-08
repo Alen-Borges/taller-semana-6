@@ -1,11 +1,27 @@
 body {
-    background-color: rgb(255, 255, 165);
+    background-color: rgb(255, 253, 195);
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.temaOscuro {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.temaOscuro button {
+  background-color: #333;
+  color: #fff;
 }
 
 .image{
     border: 5px solid green;
     border-radius: 10px;
     height: 400px;
+}
+
+.temaOscuro .image {
+    border-color: #500075;
 }
 
 .link-button {
